@@ -1,0 +1,17 @@
+{
+  "name": "com.talus.taluspackage",
+  "version": "1.0.0",
+  "displayName": "Talus Package",
+  "description": "",
+  "unity": "2020.3",
+  "unityRelease": "9f1",
+  "keywords": [
+    "package",
+    "template"
+  ],
+  "author": {
+    "name": "Talus Studio",
+    "email": "info@talusstudio.com",
+    "url": "http://www.talusstudio.com"
+  }
+}
