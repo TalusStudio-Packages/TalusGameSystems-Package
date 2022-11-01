@@ -1,17 +1,21 @@
 {
-  "name": "com.talus.taluspackage",
+  "name": "com.talus.talusgamesystems",
   "version": "1.0.0",
-  "displayName": "Talus Package",
+  "displayName": "TalusGameSystems",
   "description": "",
   "unity": "2020.3",
   "unityRelease": "9f1",
   "keywords": [
     "package",
-    "template"
+    "systems",
+    "game"
   ],
   "author": {
     "name": "Talus Studio",
     "email": "info@talusstudio.com",
     "url": "http://www.talusstudio.com"
+  },
+  "dependencies": {
+    "com.talus.talusframework": "3.1.0"
   }
 }
