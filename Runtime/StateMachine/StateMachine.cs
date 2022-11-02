@@ -14,17 +14,18 @@ namespace TalusGameSystems.StateMachine
         [AssetList]
         [SerializeField, Required]
         private BaseState _initialState;
+        
+        [Space, SerializeField] 
+        private Transition[] _transitions;
 
         public BaseState CurrentState
         {
             get => _currentState;
             set => _currentState = value;
         }
-
-        [SerializeField]
-        private Transition[] _transitions;
         
-        [SerializeField, ReadOnly]
+        [Header("Debugging")]
+        [SerializeField, ReadOnly] 
         private BaseState _currentState;
 
         private Dictionary<Type, Component> _cachedComponents;
@@ -51,6 +52,20 @@ namespace TalusGameSystems.StateMachine
         {
             CurrentState.OnFixedUpdate(this);
         }
+        
+        private void CheckTransitions()
+        {
+            for (int i = 0; i < _transitions.Length; ++i)
+            {
+                Transition transition = _transitions[i];
+                if (transition.TargetState == CurrentState) { continue; }
+                if (!transition.IsSatisfy(this)) { continue; }
+
+                CurrentState.OnExit(this);
+                CurrentState = transition.TargetState;
+                CurrentState.OnEnter(this);
+            }
+        }
 
         public new T GetComponent<T>() where T : Component
         {
@@ -60,28 +75,13 @@ namespace TalusGameSystems.StateMachine
             }
 
             var component = base.GetComponent<T>();
+
             if (component != null)
             {
                 _cachedComponents.Add(typeof(T), component);
             }
 
             return component;
-        }
-
-        private void CheckTransitions()
-        {
-            for (int i = 0; i < _transitions.Length; ++i)
-            {
-                Transition transition = _transitions[i];
-                if (!transition.CheckDecision(this) || transition.TargetState == CurrentState)
-                {
-                    continue;
-                }
-
-                CurrentState.OnExit(this);
-                CurrentState = transition.TargetState;
-                CurrentState.OnEnter(this);
-            }
         }
     }
 }
