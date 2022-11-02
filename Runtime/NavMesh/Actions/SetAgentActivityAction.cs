@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 
 using TalusGameSystems.StateMachine;
 
-namespace TalusGameSystems.NavMesh
+namespace TalusGameSystems.NavMesh.Actions
 {
     [CreateAssetMenu(fileName = "New Agent Activity Action", menuName = "Systems/NavMesh/Actions/Agent Activity")]
     public class SetAgentActivityAction : BaseAction

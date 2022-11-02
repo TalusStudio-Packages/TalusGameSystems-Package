@@ -7,7 +7,7 @@ using TalusFramework.References;
 
 using TalusGameSystems.StateMachine;
 
-namespace TalusGameSystems.NavMesh
+namespace TalusGameSystems.NavMesh.Actions
 {
     [CreateAssetMenu(fileName = "New Update Agent Rotation Action", menuName = "Systems/NavMesh/Actions/Update Agent Rotation")]
     public class UpdateAgentRotationAction : BaseAction

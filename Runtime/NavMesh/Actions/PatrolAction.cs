@@ -7,7 +7,7 @@ using TalusFramework.Collections;
 
 using TalusGameSystems.StateMachine;
 
-namespace TalusGameSystems.NavMesh
+namespace TalusGameSystems.NavMesh.Actions
 {
     [CreateAssetMenu(fileName = "New Patrol Action", menuName = "Systems/NavMesh/Actions/Patrol")]
     public class PatrolAction : BaseAction

@@ -14,27 +14,27 @@ namespace TalusGameSystems.StateMachine
     {
         [AssetList]
         [SerializeField, Required]
-        private BaseState _initialState;
+        private BaseState _InitialState;
         
         [Space, SerializeField] 
-        private Transition[] _transitions;
+        private Transition[] _Transitions;
 
         public BaseState CurrentState
         {
-            get => _currentState;
-            set => _currentState = value;
+            get => _CurrentState;
+            set => _CurrentState = value;
         }
         
         [Header("Debugging")]
         [SerializeField, ReadOnly] 
-        private BaseState _currentState;
+        private BaseState _CurrentState;
 
-        private Dictionary<Type, Component> _cachedComponents;
+        private Dictionary<Type, Component> _CachedComponents;
 
         protected override void Awake()
         {
-            _cachedComponents = new Dictionary<Type, Component>();
-            CurrentState = _initialState;
+            _CachedComponents = new Dictionary<Type, Component>();
+            CurrentState = _InitialState;
         }
 
         protected override void Start()
@@ -56,9 +56,9 @@ namespace TalusGameSystems.StateMachine
         
         private void CheckTransitions()
         {
-            for (int i = 0; i < _transitions.Length; ++i)
+            for (int i = 0; i < _Transitions.Length; ++i)
             {
-                Transition transition = _transitions[i];
+                Transition transition = _Transitions[i];
                 if (transition.TargetState == CurrentState) { continue; }
                 if (!transition.IsSatisfy(this)) { continue; }
 
@@ -70,15 +70,15 @@ namespace TalusGameSystems.StateMachine
 
         public new T GetComponent<T>() where T : Component
         {
-            if (_cachedComponents.ContainsKey(typeof(T)))
+            if (_CachedComponents.ContainsKey(typeof(T)))
             {
-                return _cachedComponents[typeof(T)] as T;
+                return _CachedComponents[typeof(T)] as T;
             }
 
             var component = base.GetComponent<T>();
             if (component != null)
             {
-                _cachedComponents.Add(typeof(T), component);
+                _CachedComponents.Add(typeof(T), component);
             }
 
             return component;

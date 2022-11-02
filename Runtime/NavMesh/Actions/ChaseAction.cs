@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 using TalusGameSystems.StateMachine;
 
-namespace TalusGameSystems.NavMesh
+namespace TalusGameSystems.NavMesh.Actions
 {
     [CreateAssetMenu(fileName = "New Chase Action", menuName = "Systems/NavMesh/Actions/Chase")]
     public class ChaseAction : BaseAction

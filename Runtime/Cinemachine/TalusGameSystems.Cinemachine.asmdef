@@ -1,6 +1,6 @@
 {
     "name": "TalusGameSystems.Cinemachine",
-    "rootNamespace": "",
+    "rootNamespace": "TalusGameSystems.Cinemachine",
     "references": [
         "TalusFramework",
         "Cinemachine"

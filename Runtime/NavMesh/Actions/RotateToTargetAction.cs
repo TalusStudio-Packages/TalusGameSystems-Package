@@ -7,7 +7,7 @@ using TalusFramework.References;
 
 using TalusGameSystems.StateMachine;
 
-namespace TalusGameSystems.NavMesh
+namespace TalusGameSystems.NavMesh.Actions
 {
     [CreateAssetMenu(fileName = "New Look Target Action", menuName = "Systems/NavMesh/Actions/Look Target")]
     public class RotateToTargetAction : BaseAction

@@ -1,6 +1,6 @@
 {
     "name": "TalusGameSystems",
-    "rootNamespace": "",
+    "rootNamespace": "TalusGameSystems",
     "references": [
         "TalusFramework"
     ],
