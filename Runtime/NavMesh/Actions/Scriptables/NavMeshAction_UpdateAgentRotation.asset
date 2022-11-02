@@ -14,4 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Description:
     Text: 
-  UpdateRotation: 1
+  UpdateRotation:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
