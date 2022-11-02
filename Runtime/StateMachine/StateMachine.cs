@@ -31,7 +31,7 @@ namespace TalusGameSystems.StateMachine
             
             _cachedComponents = new Dictionary<Type, Component>();
         }
-
+        
         private void Update()
         {
             CurrentState.OnUpdate(this);

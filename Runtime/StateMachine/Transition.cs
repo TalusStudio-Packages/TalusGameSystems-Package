@@ -16,7 +16,9 @@ namespace TalusGameSystems.StateMachine
         {
             if (Decision.Decide(stateMachine) && stateMachine.CurrentState != TargetState)
             {
+                stateMachine.CurrentState.OnExit(stateMachine);
                 stateMachine.CurrentState = TargetState;
+                stateMachine.CurrentState.OnEnter(stateMachine);
             }
         }
     }
