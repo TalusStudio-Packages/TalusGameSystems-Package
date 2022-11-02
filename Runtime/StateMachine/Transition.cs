@@ -10,10 +10,14 @@ namespace TalusGameSystems.StateMachine
     public class Transition : BaseSO
     {
         public BaseDecision Decision => _decision;
-        [Required, AssetList] private BaseDecision _decision;
+        
+        [Required, AssetList] 
+        [SerializeField] private BaseDecision _decision;
 
         public BaseState TargetState => _targetState;
-        [Required, AssetList] private BaseState _targetState;
+        
+        [Required, AssetList] 
+        [SerializeField] private BaseState _targetState;
 
         public bool IsSatisfy(StateMachine stateMachine)
         {
