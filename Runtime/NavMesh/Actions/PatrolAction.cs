@@ -13,15 +13,14 @@ namespace TalusGameSystems.NavMesh
     public class PatrolAction : BaseAction
     {
         [Required, AssetList]
-        [SerializeField]
-        private GameObjectCollection _patrols;
+        private GameObjectCollection Patrols;
 
         private int _nextPatrolPoint = 0;
 
         public override void Execute(StateMachine.StateMachine stateMachine)
         {
             var agent = stateMachine.GetComponent<NavMeshAgent>();
-            agent.SetDestination(_patrols[_nextPatrolPoint].transform.position);
+            agent.SetDestination(Patrols[_nextPatrolPoint].transform.position);
             
             if (agent.pathPending)
             {
@@ -30,7 +29,7 @@ namespace TalusGameSystems.NavMesh
 
             if (agent.remainingDistance <= agent.stoppingDistance)
             {
-                _nextPatrolPoint = (_nextPatrolPoint + 1) % _patrols.Count;
+                _nextPatrolPoint = (_nextPatrolPoint + 1) % Patrols.Count;
             }
         }
     }
