@@ -20,7 +20,7 @@ namespace TalusGameSystems.StateMachine
         [SerializeField, ReadOnly]
         private BaseState _currentState;
 
-        [SerializeField]
+        [SerializeField, Required]
         private BaseState _initialState;
 
         private Dictionary<Type, Component> _cachedComponents;
