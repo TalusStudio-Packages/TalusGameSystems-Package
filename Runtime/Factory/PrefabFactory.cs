@@ -7,7 +7,7 @@ using TalusFramework.Utility.Assertions;
 
 namespace TalusGameSystems.Factory
 {
-    [CreateAssetMenu(menuName = "Factory/Prefab")]
+    [CreateAssetMenu(fileName = "New Prefab Factory", menuName = "Systems/Factory/Prefab")]
     public class PrefabFactory : AbstractFactory<GameObject>
     {
         [ToggleGroup(nameof(_PositionOffset),  "Apply Offset", CollapseOthersOnExpand = false)]
