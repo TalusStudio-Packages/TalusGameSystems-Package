@@ -31,7 +31,7 @@ namespace TalusGameSystems.StateMachine
             PlayActions(_fixedUpdateActions, stateMachine);
         }
 
-        private void PlayActions(BaseAction[] actions, StateMachine stateMachine)
+        private static void PlayActions(BaseAction[] actions, StateMachine stateMachine)
         {
             for (int i = 0; i < actions.Length; ++i)
             {

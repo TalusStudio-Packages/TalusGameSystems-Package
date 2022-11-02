@@ -9,19 +9,12 @@ namespace TalusGameSystems.StateMachine
     [CreateAssetMenu(fileName = "New Transition", menuName = "Systems/State Machine/Transition")]
     public class Transition : BaseSO
     {
-        public BaseDecision Decision => _decision;
-        
-        [Required, AssetList] 
-        [SerializeField] private BaseDecision _decision;
-
-        public BaseState TargetState => _targetState;
-        
-        [Required, AssetList] 
-        [SerializeField] private BaseState _targetState;
+        [Required, AssetList] public BaseDecision Decision;
+        [Required, AssetList] public BaseState TargetState;
 
         public bool IsSatisfy(StateMachine stateMachine)
         {
-            return _decision.Decide(stateMachine);
+            return Decision.Decide(stateMachine);
         }
     }
 }
