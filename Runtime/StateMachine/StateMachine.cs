@@ -34,7 +34,7 @@ namespace TalusGameSystems.StateMachine
 
         private void Update()
         {
-            CurrentState.Execute(this);
+            CurrentState.OnUpdate(this);
         }
 
         public new T GetComponent<T>() where T : Component

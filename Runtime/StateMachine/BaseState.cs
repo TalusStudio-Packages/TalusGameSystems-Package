@@ -4,6 +4,6 @@ namespace TalusGameSystems.StateMachine
 {
     public abstract class BaseState : BaseSO
     {
-        public abstract void Execute(StateMachine stateMachine);
+        public abstract void OnUpdate(StateMachine stateMachine);
     }
 }

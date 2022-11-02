@@ -9,7 +9,7 @@ namespace TalusGameSystems.StateMachine
         
         [SerializeField] BaseAction[] _transitions;
         
-        public override void Execute(StateMachine stateMachine)
+        public override void OnUpdate(StateMachine stateMachine)
         {
             for (int i = 0; i < _actions.Length; ++i)
             {
