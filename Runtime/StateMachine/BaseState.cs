@@ -7,5 +7,6 @@ namespace TalusGameSystems.StateMachine
         public abstract void OnEnter(StateMachine stateMachine);
         public abstract void OnExit(StateMachine stateMachine);
         public abstract void OnUpdate(StateMachine stateMachine);
+        public abstract void OnFixedUpdate(StateMachine stateMachine);
     }
 }

@@ -12,14 +12,9 @@ namespace TalusGameSystems.StateMachine
         [Required] public BaseDecision Decision;
         [Required] public BaseState TargetState;
 
-        public void Execute(StateMachine stateMachine)
+        public bool CheckDecision(StateMachine stateMachine)
         {
-            if (Decision.Decide(stateMachine) && stateMachine.CurrentState != TargetState)
-            {
-                stateMachine.CurrentState.OnExit(stateMachine);
-                stateMachine.CurrentState = TargetState;
-                stateMachine.CurrentState.OnEnter(stateMachine);
-            }
+            return Decision.Decide(stateMachine);
         }
     }
 }

@@ -9,10 +9,8 @@ namespace TalusGameSystems.StateMachine
         [SerializeField] private BaseAction[] _enterActions;
         [SerializeField] private BaseAction[] _exitActions;
         [SerializeField] private BaseAction[] _updateActions;
+        [SerializeField] private BaseAction[] _fixedUpdateActions;
         
-        [Header("Transitions")]
-        [SerializeField] BaseAction[] _transitions;
-
         public override void OnEnter(StateMachine stateMachine)
         {
             PlayActions(_enterActions, stateMachine);
@@ -26,11 +24,11 @@ namespace TalusGameSystems.StateMachine
         public override void OnUpdate(StateMachine stateMachine)
         {
             PlayActions(_updateActions, stateMachine);
+        }
 
-            for (int i = 0; i < _transitions.Length; ++i)
-            {
-                _transitions[i].Execute(stateMachine);
-            }
+        public override void OnFixedUpdate(StateMachine stateMachine)
+        {
+            PlayActions(_fixedUpdateActions, stateMachine);
         }
 
         private void PlayActions(BaseAction[] actions, StateMachine stateMachine)

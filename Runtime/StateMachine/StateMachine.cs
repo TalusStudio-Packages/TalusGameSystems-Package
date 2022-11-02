@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-using Sirenix.OdinInspector;
-
 using UnityEngine;
+
+using Sirenix.OdinInspector;
 
 using TalusFramework.Behaviours.Interfaces;
 
@@ -11,30 +11,45 @@ namespace TalusGameSystems.StateMachine
 {
     public class StateMachine : BaseBehaviour
     {
+        [AssetList]
+        [SerializeField, Required]
+        private BaseState _initialState;
+
         public BaseState CurrentState
         {
             get => _currentState;
             set => _currentState = value;
         }
 
+        [SerializeField]
+        private Transition[] _transitions;
+        
         [SerializeField, ReadOnly]
         private BaseState _currentState;
-
-        [SerializeField, Required]
-        private BaseState _initialState;
 
         private Dictionary<Type, Component> _cachedComponents;
 
         protected override void Awake()
         {
-            CurrentState = _initialState;
-            
             _cachedComponents = new Dictionary<Type, Component>();
+            CurrentState = _initialState;
         }
-        
+
+        protected override void Start()
+        {
+            CurrentState.OnEnter(this);
+        }
+
         private void Update()
         {
             CurrentState.OnUpdate(this);
+            
+            CheckTransitions();
+        }
+
+        private void FixedUpdate()
+        {
+            CurrentState.OnFixedUpdate(this);
         }
 
         public new T GetComponent<T>() where T : Component
@@ -51,6 +66,22 @@ namespace TalusGameSystems.StateMachine
             }
 
             return component;
+        }
+
+        private void CheckTransitions()
+        {
+            for (int i = 0; i < _transitions.Length; ++i)
+            {
+                Transition transition = _transitions[i];
+                if (!transition.CheckDecision(this) || transition.TargetState == CurrentState)
+                {
+                    continue;
+                }
+
+                CurrentState.OnExit(this);
+                CurrentState = transition.TargetState;
+                CurrentState.OnEnter(this);
+            }
         }
     }
 }
