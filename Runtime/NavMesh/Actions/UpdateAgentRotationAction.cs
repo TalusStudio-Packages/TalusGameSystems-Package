@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+using Sirenix.OdinInspector;
+
+using TalusFramework.References;
+
 using TalusGameSystems.StateMachine;
 
 namespace TalusGameSystems.NavMesh
@@ -8,7 +12,8 @@ namespace TalusGameSystems.NavMesh
     [CreateAssetMenu(fileName = "New Update Agent Rotation Action", menuName = "Systems/NavMesh/Actions/Update Agent Rotation")]
     public class UpdateAgentRotationAction : BaseAction
     {
-        public bool UpdateRotation;
+        [LabelWidth(100f)]
+        public BoolReference UpdateRotation;
         
         public override void Execute(StateMachine.StateMachine stateMachine)
         {
