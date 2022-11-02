@@ -76,7 +76,6 @@ namespace TalusGameSystems.StateMachine
             }
 
             var component = base.GetComponent<T>();
-
             if (component != null)
             {
                 _cachedComponents.Add(typeof(T), component);
