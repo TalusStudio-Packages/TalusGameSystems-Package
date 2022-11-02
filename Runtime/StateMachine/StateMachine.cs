@@ -9,6 +9,7 @@ using TalusFramework.Behaviours.Interfaces;
 
 namespace TalusGameSystems.StateMachine
 {
+    [AddComponentMenu("TalusGameSystems/State Machine/State Machine", 0)]
     public class StateMachine : BaseBehaviour
     {
         [AssetList]

@@ -7,8 +7,8 @@ using Cinemachine;
 
 namespace TalusGameSystems.Cinemachine
 {
-    [AddComponentMenu("TalusFramework/Behaviours/Cinemachine/Blend Finished Notifier", 0)]
-    public class CmBlendFinishedNotifier : BaseBehaviour
+    [AddComponentMenu("TalusGameSystems/Cinemachine/Blend Finished Notifier", 0)]
+    public class BlendFinishedNotifier : BaseBehaviour
     {
         public UnityEvent<CinemachineVirtualCameraBase> OnBlendFinished;
 
