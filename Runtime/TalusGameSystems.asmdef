@@ -12,7 +12,15 @@
         "Sirenix.OdinInspector.Attributes.dll"
     ],
     "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
+    "defineConstraints": [
+        "TALUS_FRAMEWORK"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.talus.talusframework",
+            "expression": "3.0.0",
+            "define": "TALUS_FRAMEWORK"
+        }
+    ],
     "noEngineReferences": false
 }
