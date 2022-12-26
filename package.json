@@ -1,6 +1,6 @@
 {
   "name": "com.talus.talusgamesystems",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "displayName": "TalusGameSystems",
   "description": "",
   "unity": "2020.3",
@@ -17,5 +17,6 @@
   },
   "dependencies": {
     "com.talus.talusframework": "3.1.0"
-  }
+  },
+  "repository": "github:talusstudio-packages/TalusGameSystems-Package"
 }
